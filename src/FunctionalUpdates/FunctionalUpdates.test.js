@@ -56,50 +56,50 @@ describe("Functional updates", () => {
       jest.useFakeTimers();
     });
 
-    it('should not count plain async increment properly', async () => {
-        const {
-            increment,
-            incrementAsynchronously,
-            getCounterValue,
-            advanceTimersByTime,
-          } = renderComponent();
-    
-          expect(getCounterValue()).toBe(0);
-    
-          increment();
-          incrementAsynchronously();
-          increment();
-          incrementAsynchronously();
-          increment();
-    
-          await act(async () => {
-            await advanceTimersByTime(5000);
-          });
-    
-          expect(getCounterValue()).toBe(3)        
+    it("should not count plain async increment properly", async () => {
+      const {
+        increment,
+        incrementAsynchronously,
+        getCounterValue,
+        advanceTimersByTime,
+      } = renderComponent();
+
+      expect(getCounterValue()).toBe(0);
+
+      increment();
+      incrementAsynchronously();
+      increment();
+      incrementAsynchronously();
+      increment();
+
+      await act(async () => {
+        await advanceTimersByTime(5000);
+      });
+
+      expect(getCounterValue()).toBe(3);
     });
 
-    it('should not count plain useCallback increment properly', async () => {
-        const {
-            increment,
-            incrementUseCallback,
-            getCounterValue,
-            advanceTimersByTime,
-          } = renderComponent();
-    
-          expect(getCounterValue()).toBe(0);
-    
-          increment();
-          incrementUseCallback();
-          increment();
-          incrementUseCallback();
-          increment();
-    
-          await act(async () => {
-            await advanceTimersByTime(5000);
-          });
-    
-          expect(getCounterValue()).toBe(3);        
+    it("should not count plain useCallback increment properly", async () => {
+      const {
+        increment,
+        incrementUseCallback,
+        getCounterValue,
+        advanceTimersByTime,
+      } = renderComponent();
+
+      expect(getCounterValue()).toBe(0);
+
+      increment();
+      incrementUseCallback();
+      increment();
+      incrementUseCallback();
+      increment();
+
+      await act(async () => {
+        await advanceTimersByTime(5000);
+      });
+
+      expect(getCounterValue()).toBe(3);
     });
 
     it("should count functional update properly", async () => {

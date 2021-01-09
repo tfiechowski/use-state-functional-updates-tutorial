@@ -1,4 +1,4 @@
-import { FunctionalUpdates } from './FunctionalUpdates';
+import { FunctionalUpdates } from "./FunctionalUpdates";
 
 function App() {
   return (
